@@ -88,3 +88,53 @@ def flight_agent(state: TravelState):
 
 
 
+# =========================
+# Hotel Agent
+# =========================
+
+def hotel_agent(state: TravelState):
+    query = f"Best hotels for {state['user_query']}"
+    hotel_results = tavily_search(query)
+
+    return {
+        "hotel_results": hotel_results,
+        "messages": [
+            AIMessage(content="Hotel information fetched.")
+        ],
+        "llm_calls": state.get("llm_calls", 0) + 1
+    }
+
+
+
+
+# =========================
+# Itinerary Agent
+# =========================
+
+def itinerary_agent(state: TravelState):
+    prompt = f"""
+Create a complete travel itinerary.
+
+User Query:
+{state['user_query']}
+
+Flight Results:
+{state['flight_results']}
+
+Hotel Results:
+{state['hotel_results']}
+
+Make the itinerary practical, budget-aware, and easy to follow.
+"""
+
+    response = llm.invoke([
+        SystemMessage(content="You are an expert travel planner."),
+        HumanMessage(content=prompt)
+    ])
+
+    return {
+        "itinerary": response.content,
+        "messages": [response],
+        "llm_calls": state.get("llm_calls", 0) + 1
+    }
+
