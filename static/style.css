@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    background: #07111f;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.18), transparent 28%),
+        linear-gradient(135deg, #07111f 0%, #0f172a 45%, #111827 100%);
+}
+
+.gradient-circle {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(60px);
+    opacity: 0.45;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: #2563eb;
+    top: 8%;
+    left: 5%;
+}
+
+.circle-2 {
+    width: 260px;
+    height: 260px;
+    background: #9333ea;
+    top: 20%;
+    right: 8%;
+}
+
+.circle-3 {
+    width: 220px;
+    height: 220px;
+    background: #14b8a6;
+    bottom: 8%;
+    left: 35%;
+}
+
+.app-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 56px 0 30px;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px);
+    color: #c4b5fd;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    font-size: clamp(2.2rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #ffffff, #93c5fd, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.planner-card,
+.result-section {
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+}
+
+.planner-card {
+    padding: 28px;
+}
+
+.card-header,
+.result-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
